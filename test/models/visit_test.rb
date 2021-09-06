@@ -1,6 +1,6 @@
 require "test_helper"
 
-class VisitSchedulingTest < ActiveSupport::TestCase
+class VisitTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

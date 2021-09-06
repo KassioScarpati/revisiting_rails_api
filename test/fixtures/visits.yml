@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  durationMinutes: 1
+  visit_scheduling: one
+
+two:
+  description: MyText
+  durationMinutes: 1
+  visit_scheduling: two
