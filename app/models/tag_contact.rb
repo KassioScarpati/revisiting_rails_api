@@ -1,0 +1,2 @@
+class TagContact < ApplicationRecord
+end

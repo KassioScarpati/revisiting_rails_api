@@ -4,6 +4,7 @@ class CreateVisits < ActiveRecord::Migration[6.1]
       t.text :description
       t.integer :duration_minutes
       t.references :visit_scheduling, null: false, foreign_key: true
+      t.string :type_visit
 
       t.timestamps
     end
