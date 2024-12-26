@@ -35,6 +35,9 @@ gem "thruster", require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
 
+# Async is a composable asynchronous I/O framework for Ruby based on io-event.
+gem "async", "~> 2.17"
+
 group :development do
   gem "rubocop", "~> 1.69", require: false
 end
