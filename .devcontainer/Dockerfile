@@ -8,8 +8,6 @@ WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
 
-RUN gem install bundler:$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)
-
 RUN bundle install --jobs 4
 
 COPY . .
