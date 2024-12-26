@@ -3,23 +3,33 @@ services:
   revisiting_rails_api:
     build:
       context: .
+      dockerfile: .devcontainer/Dockerfile
     volumes:
       - .:/app
     ports:
       - "3000:3000"
-  #   depends_on:
-  #     - revisiting_db
-  #   environment:
-  #     - DATABASE_URL=postgresql://postgres:password@revisiting_db:5432/revisiting_development
+    depends_on:
+      - revisiting_db
+    environment:
+      - RAILS_ENV=development
 
-  # revisiting_db:
-  #   image: postgres:15
+  revisiting_db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: revisiting_user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: revisiting_development
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # # pgadmin4 apenas para auditar o postgres
+  # pgadmin:
+  #   image: dpage/pgadmin4
   #   environment:
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWORD: password
-  #     POSTGRES_DB: revisiting_development
-  #   volumes:
-  #     - postgres_data:/var/lib/postgresql/data
+  #     PGADMIN_DEFAULT_EMAIL: "admin@admin.admin"
+  #     PGADMIN_DEFAULT_PASSWORD: "12345678"
+  #   ports:
+  #     - "16543:80"
 
 volumes:
   postgres_data:
